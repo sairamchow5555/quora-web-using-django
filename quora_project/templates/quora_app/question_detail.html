@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Question Details</title>
+  </head>
+  <body>
+    <h2>{{ question.title }}</h2>
+    <p><strong>Question: </strong>{{ question.content }}</p>
+
+    <h4>Answers:</h4>
+    <ol>
+      {% for answer in answers %}
+        <li>
+          {{ answer.content }}
+          <a href="{% url 'like_answer' answer.id %}">
+            {% if request.user in answer.like_set.all %}
+              Unlike
+            {% else %}
+              Like
+            {% endif %}
+          </a>
+        </li><br>
+      {% endfor %}
+    </ol>
+
+    <h4><a href="{% url 'answer_question' question.id %}">Post an Answer</a></h4>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    <button> <a href="{% url 'question_list' %}">Home</a> </button>
+    </form>
+
+  </body>
+</html>

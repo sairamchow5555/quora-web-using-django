@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Question List</title>
+  </head>
+  <body>
+    <h1>Welcome to Quora</h1><hr>
+    <h2>Question List</h2>
+    <ol>
+      {% for question in questions %}
+        <li><a href="{% url 'question_detail' question.id %}">{{ question.content }}</a></li><br>
+      {% endfor %}
+    </ol>
+    <a style="display:block;text-align:center" href="ask/"><button>Ask Question</button></a>
+  </body>
+</html>

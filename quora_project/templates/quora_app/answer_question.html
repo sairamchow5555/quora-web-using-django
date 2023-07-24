@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Post Answer</title>
+  </head>
+  <body>
+    <h2>Answer the Question</h2>
+    <h4>{{ question.title }}</h4>
+      <p><strong>Question: </strong>{{ question.content }}</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      &emsp;&emsp;&emsp;&emsp;&emsp;<button type="submit">Answer</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button> <a href="{% url 'question_list' %}">Home</a> </button>
+    </form>
+
+  </body>
+</html>

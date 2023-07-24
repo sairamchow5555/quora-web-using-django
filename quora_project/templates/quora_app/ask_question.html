@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ask Question</title>
+  </head>
+  <body>
+    <h2>Ask a Question</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button type="submit">Ask</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <button> <a href="{% url 'question_list' %}">Home</a> </button>
+    </form>
+  </body>
+</html>
